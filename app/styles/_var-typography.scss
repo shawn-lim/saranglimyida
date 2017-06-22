@@ -1,0 +1,59 @@
+/* ------------------------------
+  Variables - Typography
+------------------------------ */
+
+/* ------ Project Theme ------ */
+
+// Font Family
+$font-family-primary   : 'Rajdhani', Arial, sans-serif;
+$font-family-secondary : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Font Weight
+$font-weight-bold    : 700;
+$font-weight-default : 400;
+$font-weight-light   : 300;
+
+// Font Sizes
+$font-size-xx-large : 28px;
+$font-size-x-large  : 24px;
+$font-size-large    : 18px;
+$font-size-medium   : 16px;
+$font-size-default  : 14px;
+$font-size-small    : 12px;
+
+// Line Height
+$line-height-wide    : 1.8;
+$line-height-default : 1.6;
+$line-height-narrow  : 1.4;
+
+/* ------ Setting Typography ------ */
+
+// Font Family
+$font-family-logo    : $font-family-primary;
+$font-family-heading : $font-family-primary;
+$font-family-body    : $font-family-primary;
+
+// Font Weight for Heading
+$font-weight-heading : $font-weight-default;
+
+// Font Sizes
+$font-size-h1     : $font-size-xx-large;
+$font-size-h2     : $font-size-x-large;
+$font-size-h3     : $font-size-large;
+$font-size-h4     : $font-size-medium;
+$font-size-button : $font-size-medium;
+$font-size-body   : $font-size-default;
+
+// Line Height
+$line-height-heading : $line-height-narrow;
+$line-height-body    : $line-height-default;
+
+h1, h2, h3, h4, h5, h6 { 
+  color: lighten($color-primary, 10);
+  font-family: $font-family-heading;
+  font-weight: bold;
+}
+
+body{
+  font-family: $font-family-body;
+}

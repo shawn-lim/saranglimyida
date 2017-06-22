@@ -1,0 +1,35 @@
+.no-margin {
+  margin: 0;
+}
+.mt-lg{
+  margin-top: 40px;
+}
+.mt-md{
+  margin-top: 20px;
+}
+.text-x-large{
+  font-size: $font-size-x-large;
+}
+.text-large{
+  font-size: $font-size-large;
+}
+.text-primary {
+  color: $color-primary !important;
+}
+.text-grey{
+  color: $grey !important;
+}
+.text-success{
+  color: $success !important;
+}
+.text-danger{
+  color: $error !important;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.animate{
+  transition: all 0.1s linear;
+}
