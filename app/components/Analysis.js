@@ -3,202 +3,12 @@ var PropTypes = require('prop-types');
 var queryString = require('query-string');
 var axios = require('axios');
 
+var Timeline = require('./AnalysisComponents/Timeline');
+var VideoPlayer = require('./AnalysisComponents/VideoPlayer');
+var ActivityList = require('./AnalysisComponents/ActivityList');
+
 var api = require('../utils/api');
 
-class VideoPlayer extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      onPlayNext: this.props.onPlayNext
-    }
-  }
-
-  componentDidMount(){
-    /* Auto move to next clip */
-    document.getElementById('main-player').addEventListener('ended', () => {
-      this.state.onPlayNext();
-    }, false);
-  }
-  render(){
-    var url = this.props.current_video ? this.props.current_video.filename : null;
-    var bounding_box = this.props.bounding_box || false;
-    return (
-      <div className="player-container">
-        <div className="main-player-container">
-          <div className={"video-status " + (this.props.current_video ? "text-success" : "text-danger")}>
-            <div className="triangle-topleft"></div>
-            <i className="fa fa-circle display-inline"></i>
-            <p className="no-margin">
-              {this.props.current_video ? 
-                  <span>REPLAY: <span className="text-grey">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CAM#3124</span></span>
-                  :
-                  <span>NO PLAYBACK</span>
-              }
-            </p>
-          </div>
-          <video id="main-player" src={url} type="video/mp4"></video>
-          {bounding_box &&
-              <div className="bounding-box" style={bounding_box}>
-                <div className="bounding-box-info">
-                  Subject 1
-                  Detected at Camera 1
-                  At 21:00:21 PM
-                </div>
-              </div>
-          }
-        </div>
-      </div>
-    )
-  }
-}
-class Timeline extends React.Component {
-  render(){
-    var now = this.props.current_time;
-    var bounds = this.props.timeline.bounds || {};
-    var pois = this.props.timeline.pois || [];
-    return (
-      <div className="timeline">
-        <div className="play-marker" style={{left: now + '%' }}></div>
-        <div className="search-marker start" style={bounds.start}></div>
-        <div className="search-marker end" style={bounds.end}></div>
-        {pois.map((poi,index) => {
-          return (
-            <div key={index} className="poi" style={poi.style} onClick={this.props.onJump.bind(null, poi.start - 1500)}>
-              <div className="time-marker-container">
-                <div className="time-marker start"></div>
-                <div className="time-marker end"></div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
-}
-
-class Activity extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      activity: props.activity,
-      onClick: props.onClick
-    }
-  }
-  render(){
-    var a = this.state.activity;
-    var is_active = this.props.is_active;
-    return (
-      <div 
-        className={"activity " + (is_active ? 'active' : '') }
-        onClick={this.state.onClick.bind(null, this.state.activity)}>
-        <h4 className="no-margin">{a.action}</h4>
-        <div>
-          <label className="label-above">
-            Highest Confidence:
-          </label>
-          <p className="text-x-large text-primary text-center">{a.highest_confidence}%</p>
-        </div>
-      </div>
-    )
-  }
-}
-class ActivityList extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      activities: [],
-      timeline: props.timeline,
-      frame_data: props.frame_data,
-      onSelectActivity: props.onSelectActivity
-    }
-    this.registerActivities = this.registerActivities.bind(this);
-    this.processFrameData = this.processFrameData.bind(this);
-  }
-  registerActivities(activities){
-    this.setState({activities: activities});
-  }
-  processFrameData(frame_data){
-    var activities = [];
-    var actions={};
-    var poi = {};
-    frame_data.map(function(res){
-      res.actions.map(function(a){
-        if(!actions[a.action]){actions[a.action] = [];}
-        actions[a.action].push({
-          start: parseInt(res.start_time),
-          end: parseInt(res.end_time),
-          confidence: Math.round(a.probability * 100)
-        });
-      });
-    });
-    for(var action in actions){
-      var slices = actions[action];
-      slices.sort(function(a,b){
-        return a.start-b.start;
-      });
-      var tmp = {
-        action: action,
-        slices: slices,
-        highest_confidence: 0
-      };
-      tmp.pois = [];
-      var poi = {};
-      var prev;
-      slices.map(function(slice){
-        if(!poi.start){
-          poi.start = slice.start;
-          poi.confidence = slice.confidence;
-          tmp.highest_confidence = Math.max(tmp.highest_confidence, slice.confidence);
-        }
-        else if (slice.start !== prev){
-          poi.end = prev;
-          tmp.pois.push(poi);
-          poi = {};
-        }
-        prev = slice.end;
-      });
-      poi.end = prev;
-      tmp.pois.push(poi);
-      tmp.pois.map((poi)=>{
-        poi.pos_start = (poi.start - this.state.timeline.beginning) / this.state.timeline.total * 100;
-        poi.pos_length = (poi.end - poi.start) / this.state.timeline.total * 100;
-        poi.style = {
-          left: poi.pos_start + '%',
-          width: poi.pos_length + '%'
-        }
-      });
-      activities.push(tmp);
-    }
-    activities = activities.sort(function(a,b){
-      return b.highest_confidence - a.highest_confidence;
-    });
-    this.registerActivities(activities);
-    console.log(activities);
-  }
-  componentDidMount(){
-    this.processFrameData(this.state.frame_data);
-  }
-  render(){
-    var sa = this.props.selected_activity;
-    return (
-      <div className="activity-container">
-        {this.state.activities.map((activity)=>{
-          return(
-            <Activity
-              key={activity.action}
-              activity={activity}
-              onClick={this.state.onSelectActivity}
-              is_active={sa && sa.action === activity.action}
-            >
-            </Activity>
-          )
-        })}
-      </div>
-    )
-  }
-}
 class Analysis extends React.Component {
   constructor(props){
     super(props)
@@ -363,7 +173,10 @@ class Analysis extends React.Component {
           }
         </section>
         <section className="main-section-container">
-          {this.state.frame_data && this.state.timeline &&
+          {
+            this.state.analysis_type === 'activities' && 
+              this.state.frame_data && 
+              this.state.timeline &&
               <ActivityList
                 timeline={this.state.timeline}
                 selected_activity={this.state.selected_activity}
