@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
+var Link = require('react-router-dom').Link;
 
 var moment = require('moment');
 
@@ -41,7 +42,10 @@ class VideoSidebar extends React.Component {
                       :
                       <div>
                         <p className="text-success text-large">Match Found</p>
-                        <button>View Results</button>
+                        <Link 
+                          className="button full-width"
+                          to={{pathname: '/analysis', search: '?type=profile&id=' + pa.id}}
+                        >View Results</Link>
                       </div>
                     )}
                     {pa.status === 'Created' &&
@@ -70,7 +74,10 @@ class VideoSidebar extends React.Component {
                 (aa.status === 'Done' ? 
                   <div>
                     <p className="text-success">Analysis Completed.</p>
-                    <button className="full-width">View Activities</button>
+                    <Link 
+                      className="button full-width"
+                      to={{pathname: '/analysis', search: '?type=activities&id=' + selected_video.id}}
+                    >View Activities</Link>
                   </div>
                   :
                   <p>Analysis in Progress...</p>
@@ -79,7 +86,10 @@ class VideoSidebar extends React.Component {
                 (selected_video.has_activities ? 
                   <div>
                     <p className="text-success">Analysis Completed.</p>
-                    <button className="full-width">View Activities</button>
+                    <Link 
+                      className="button full-width"
+                      to={{pathname: '/analysis', search: '?type=activities&id=' + selected_video.id}}
+                    >View Activities</Link>
                   </div>
                   :
                   <button className="full-width" onClick={onActivitySearch}>Begin Activity Analysis</button>

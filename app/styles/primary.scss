@@ -9,7 +9,7 @@ body {
   background-image: url('/public/images/bg-checkered.jpg');
 }
 
-button {
+button, .button {
   display: inline-block;
   margin: 0 auto;
   padding: 5px 25px;
@@ -18,10 +18,12 @@ button {
   border: 1px solid $color-primary;
   transition: all .05s ease-in-out;
   font-size: 12px;
+  text-align: center;
   &:hover:not([disabled]){
     cursor: pointer;
     color: #fff;
     background-color: #8ec6f9;
+    text-decoration: none;
   }
   i {
     margin-right: 1em;
@@ -110,5 +112,7 @@ textarea {
   background: linear-gradient(to right, rgba(142,198,249,0.6), rgba(142,198,249,0.7));
 }
 
-@import 'Home';
 @import 'Components';
+@import 'Home';
+@import 'Analysis';
+

@@ -10,13 +10,15 @@ require("../node_modules/bootstrap/dist/css/bootstrap.css");
 require("!style-loader!css-loader!sass-loader!./index.scss");
 
 var Home = require('./components/Home');
+var Analysis = require('./components/Analysis');
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={Home}></Route>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/analysis" component={Analysis}></Route>
           <Route component={function(){
             return (
               <div className="container">

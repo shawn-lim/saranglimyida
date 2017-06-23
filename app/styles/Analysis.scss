@@ -1,0 +1,152 @@
+.analysis-video-information{
+  @extend .box-blue;
+  @extend .mt-md;
+  padding: 10px;
+}
+
+.main-section-container{
+}
+
+.main-player-container {
+  @extend .box-blue;
+  position: relative;
+  display: block;
+  width: 1129px;
+  height: 635px;
+  margin: 20px auto;
+  background: $black;
+  #main-player{
+    width: 1127px;
+    height: 633px;
+    background-color: $black;
+  }
+  .video-status{
+    position: absolute;
+    width: 300px;
+    padding: 10px 30px;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 16px;
+    top: 20px;
+    .triangle-topleft {
+      width: 0;
+      height: 0;
+      border-top: 42px solid rgba(0,0,0,0.3);
+      border-right: 25px solid transparent;
+      position: absolute;
+      top: 0;
+      right: -25px;
+    }
+    p {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 10px;
+      color: #77d114;
+    }
+  }
+  .los-established{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    padding: 10px 30px;
+    background-color: rgba(0,0,0,0.3);
+    color: #B0B0B0;
+    p {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 10px;
+      color: #ffffff;
+    }
+  }
+  .bounding-box {
+    position: absolute;
+    border: solid 2px red;
+    //@include transition-properties(top left width height, 1s, linear);
+    transition: top 1s linear, left 1s linear, width 1s linear, height 1s linear;
+    .bounding-box-info{
+      position: absolute;
+      font-size: 12px;
+      color: white;
+      font-weight: bold;
+      background: rgba(142,198,249,0.8);
+      border: solid 1px rgb(142,198,249);
+      padding: 10px 20px;
+      top:110%;
+      width: 250px;
+    }
+  }
+}
+
+.activity-container{
+  @extend .box-blue;
+  padding: 10px;
+  float: left;
+  width: 200px;
+}
+.timeline{
+  position: relative;
+  width: 100%;
+  height: 20px;
+  margin-top: 5px;
+  background-color: rgba($color-primary, 0.4);
+  @extend .box-blue;
+  .play-marker{
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    background-color: red;
+    z-index: 1;
+    transition: all 0.5s linear;
+  }
+  .poi{
+    position: absolute;
+    height: 100%;
+    background-color: rgba($color-primary, 0.5);
+    border-left: solid 1px $color-primary;
+    border-right: solid 1px $color-primary;
+    transition: all 0.2s linear;
+    &.active, &:hover{
+      background-color: rgba(orange, 0.5);
+      border-left: solid 1px orange;
+      border-right: solid 1px orange;
+      cursor: pointer;
+      .time-marker { opacity: 1; }
+    }
+    &.inactive { 
+      opacity: 0.3;
+      background-color: rgba($grey, 0.5);
+      border-left: solid 1px $grey;
+      border-right: solid 1px $grey;
+    }
+  }
+  .time-marker-container{
+    position: absolute;
+    width: 100%;
+    top: 120%;
+    left: 0;
+    overflow-x: visible;
+  }
+  .time-marker{
+    opacity: 0;
+    position: absolute;
+    width: 100px;
+    background-color: rgba(black, 0.5);
+    border: solid 1px $error;
+    color: $orange;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    transition: all linear 0.2s;
+    &.start{
+      left: -100px;
+    }
+    &.end{
+      right: -100px;
+    }
+  }
+  .search-marker{
+    position: absolute;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+}
