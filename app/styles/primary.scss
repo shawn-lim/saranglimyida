@@ -4,9 +4,14 @@
 @import '_helper';
 
 body {
+  min-width: 1600px;
   background-color: $dark-grey;
   color: $white;
   background-image: url('/public/images/bg-checkered.jpg');
+}
+
+hr {
+  border-color: rgba($color-primary, 0.5);
 }
 
 button, .button {

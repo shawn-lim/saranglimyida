@@ -76,15 +76,42 @@ class Timeline extends React.Component {
   }
 }
 
+class Activity extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      activity: props.activity,
+      onClick: props.onClick
+    }
+  }
+  render(){
+    var a = this.state.activity;
+    var is_active = this.props.is_active;
+    return (
+      <div 
+        className={"activity " + (is_active ? 'active' : '') }
+        onClick={this.state.onClick.bind(null, this.state.activity)}>
+        <h4 className="no-margin">{a.action}</h4>
+        <div>
+          <label className="label-above">
+            Highest Confidence:
+          </label>
+          <p className="text-x-large text-primary text-center">{a.highest_confidence}%</p>
+        </div>
+      </div>
+    )
+  }
+}
 class ActivityList extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
       activities: [],
-      timeline: this.props.timeline,
-      frame_data: this.props.frame_data,
-      onSelectActivity: this.props.onSelectActivity
+      timeline: props.timeline,
+      frame_data: props.frame_data,
+      onSelectActivity: props.onSelectActivity
     }
     this.registerActivities = this.registerActivities.bind(this);
     this.processFrameData = this.processFrameData.bind(this);
@@ -154,15 +181,18 @@ class ActivityList extends React.Component {
     this.processFrameData(this.state.frame_data);
   }
   render(){
+    var sa = this.props.selected_activity;
     return (
       <div className="activity-container">
         {this.state.activities.map((activity)=>{
           return(
-            <div key={activity.action}>
-              <button onClick={this.state.onSelectActivity.bind(null, activity)}>
-                {activity.action}
-              </button>
-            </div>
+            <Activity
+              key={activity.action}
+              activity={activity}
+              onClick={this.state.onSelectActivity}
+              is_active={sa && sa.action === activity.action}
+            >
+            </Activity>
           )
         })}
       </div>
@@ -336,6 +366,7 @@ class Analysis extends React.Component {
           {this.state.frame_data && this.state.timeline &&
               <ActivityList
                 timeline={this.state.timeline}
+                selected_activity={this.state.selected_activity}
                 frame_data={this.state.frame_data}
                 onSelectActivity={this.updateActivity}
               ></ActivityList>

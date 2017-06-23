@@ -81,8 +81,23 @@
   @extend .box-blue;
   padding: 10px;
   float: left;
-  width: 200px;
+  width: 210px;
+  height: 635px;
+  overflow-y: auto;
 }
+
+.activity {
+  border: solid 1px transparent;
+  background-color: rgba(0,0,0,.25);
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: all 0.2s linear;
+  &.active, &:hover{
+    @extend .box-blue;
+    cursor: pointer;
+  }
+}
+
 .timeline{
   position: relative;
   width: 100%;
