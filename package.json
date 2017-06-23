@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "webpack",
-    "start": "./node_modules/.bin/webpack-dev-server --open --inline --hot",
+    "start": "./node_modules/.bin/webpack-dev-server --inline --hot",
     "build": "NODE_ENV='production' webpack -p"
   },
   "babel": {
