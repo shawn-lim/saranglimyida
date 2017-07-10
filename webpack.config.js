@@ -11,20 +11,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-        secure: false
-      },
-      '/public/videos': {
-        target: 'http://localhost:8000',
-        secure: false
-      },
-      '/public/profiles': {
-        target: 'http://localhost:8000',
-        secure: false
-      }
-    }
+    // Proxy Settings used for development. Redirect all local requests to a given API server. 
+    //proxy: {
+      //'/api': {
+        //target: 'http://localhost:8000',
+        //secure: false
+      //},
+    //}
   },
   module: {
     rules: [
@@ -48,10 +41,5 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'public', to: 'public' }
     ]),
-    //new webpack.ProvidePlugin({
-    //$: "jquery",
-    //jQuery: "jquery",
-    //Tether: 'tether'
-    //})
   ]
 }

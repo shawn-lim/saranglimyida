@@ -5,9 +5,8 @@
 
 body {
   min-width: 1600px;
-  background-color: $dark-grey;
-  color: $white;
-  background-image: url('/public/images/bg-checkered.jpg');
+  background-color: $white;
+  color: $black;
 }
 
 hr {
@@ -119,5 +118,4 @@ textarea {
 
 @import 'Components';
 @import 'Home';
-@import 'Analysis';
 
