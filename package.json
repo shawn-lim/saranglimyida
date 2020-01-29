@@ -1,5 +1,5 @@
 {
-  "name": "react-client",
+  "name": "saranglimyida",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -30,6 +30,7 @@
     "react-router-dom": "^4.1.1",
     "react-sticky": "^6.0.1",
     "react-transition-group": "^1.2.0",
+    "styled-components": "^5.0.0",
     "wnumb": "^1.1.0"
   },
   "devDependencies": {
