@@ -2,6 +2,7 @@ import React from "react";
 
 import HeaderBar from "./HeaderBar";
 import Countdown from "./Countdown";
+import About from './About';
 import Bali from "./Bali";
 import Kuching from "./Kuching";
 import Brunei from "./Brunei";
@@ -44,6 +45,7 @@ class Home extends React.Component {
         <HeaderBar />
         <HomeContent opacity={homecardOpacity} />
         <Countdown opacity={countdownOpacity} />
+        <About />
         <Bali />
         <Kuching />
         <Brunei />
@@ -61,17 +63,17 @@ const HomeContent = ({ opacity }) => {
         <div className="image-content">
           <div className="introduction">
             <p>
-              With great joy, please join us in our celebration officiating our
+              Please join us in our celebration officiating our
               love for each other.
             </p>
             <div className="names-container">
-              <h1 className="names">Shawn Lim</h1>
-              <p style={{ margin: "20px" }}>🎔</p>
-              <h1 className="names">Christine Yi</h1>
+              <h1 className="names">Shawn Lim Hoong Tze</h1>
+              <p className="name-heart-separator">🎔</p>
+              <h1 className="names">Christine Seungmin Yi</h1>
             </div>
             <img
               className="home-page-logo"
-              src="/public/images/transparent-cropped.png"
+              src="/public/images/SNS.png"
             />
           </div>
         </div>

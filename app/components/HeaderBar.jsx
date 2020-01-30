@@ -32,6 +32,20 @@ class HeaderBar extends React.Component {
         <div className="header-links">
           <Link
             activeClass="active"
+            to="our-story"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+            onSetActive={this.handleSetActive}
+          >
+            Our Story
+          </Link>
+        </div>
+        <p className="heart-separator">🎔</p>
+        <div className="header-links">
+          <Link
+            activeClass="active"
             to="bali"
             spy={true}
             smooth={true}

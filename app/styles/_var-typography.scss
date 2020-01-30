@@ -5,7 +5,7 @@
 /* ------ Project Theme ------ */
 
 // Font Family
-$font-family-primary   : 'Rajdhani', Arial, sans-serif;
+$font-family-primary   : 'Zilla Slab', Arial, sans-serif;
 $font-family-secondary : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // Font Weight
@@ -48,8 +48,8 @@ $font-size-body   : $font-size-default;
 $line-height-heading : $line-height-narrow;
 $line-height-body    : $line-height-default;
 
-h1, h2, h3, h4, h5, h6 { 
-  color: lighten($color-primary, 10);
+h1, h2, h3, h4, h5, h6 {
+  color: lighten($black, 10);
   font-family: $font-family-heading;
   font-weight: bold;
 }

@@ -1,30 +1,26 @@
-[debug] [2020-01-30T11:32:56.654Z] ----------------------------------------------------------------------
-[debug] [2020-01-30T11:32:56.656Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2020-01-30T11:32:56.656Z] CLI Version:   7.12.1
-[debug] [2020-01-30T11:32:56.656Z] Platform:      darwin
-[debug] [2020-01-30T11:32:56.656Z] Node Version:  v12.13.0
-[debug] [2020-01-30T11:32:56.657Z] Time:          Thu Jan 30 2020 03:32:56 GMT-0800 (Pacific Standard Time)
-[debug] [2020-01-30T11:32:56.657Z] ----------------------------------------------------------------------
-[debug] [2020-01-30T11:32:56.657Z] 
-[debug] [2020-01-30T11:32:56.671Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-01-30T11:32:56.671Z] > authorizing via signed-in user
-[debug] [2020-01-30T11:32:56.672Z] [iam] checking project saranglimyida for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
-[debug] [2020-01-30T11:32:56.673Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2020-01-30T11:32:56.673Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2020-01-30T11:32:57.560Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-30T11:32:57.578Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/saranglimyida:testIamPermissions  
+[debug] [2020-01-30T23:39:34.374Z] ----------------------------------------------------------------------
+[debug] [2020-01-30T23:39:34.375Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2020-01-30T23:39:34.375Z] CLI Version:   7.12.1
+[debug] [2020-01-30T23:39:34.375Z] Platform:      darwin
+[debug] [2020-01-30T23:39:34.376Z] Node Version:  v12.13.0
+[debug] [2020-01-30T23:39:34.376Z] Time:          Thu Jan 30 2020 15:39:34 GMT-0800 (Pacific Standard Time)
+[debug] [2020-01-30T23:39:34.376Z] ----------------------------------------------------------------------
+[debug] [2020-01-30T23:39:34.376Z] 
+[debug] [2020-01-30T23:39:34.384Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-30T23:39:34.384Z] > authorizing via signed-in user
+[debug] [2020-01-30T23:39:34.384Z] [iam] checking project saranglimyida for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2020-01-30T23:39:34.385Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/saranglimyida:testIamPermissions  
 
-[debug] [2020-01-30T11:32:58.001Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-30T11:32:58.002Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/saranglimyida  
+[debug] [2020-01-30T23:39:34.528Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-30T23:39:34.530Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/saranglimyida  
  
-[debug] [2020-01-30T11:32:58.429Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-30T23:39:34.794Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'saranglimyida'...
 [info] 
 [info] i  deploying database, hosting
 [info] i  database: checking rules syntax...
-[debug] [2020-01-30T11:32:58.434Z] >>> HTTP REQUEST PUT https://saranglimyida.firebaseio.com/.settings/rules.json?dryRun=true  
+[debug] [2020-01-30T23:39:34.798Z] >>> HTTP REQUEST PUT https://saranglimyida.firebaseio.com/.settings/rules.json?dryRun=true  
  {
   /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
@@ -33,17 +29,17 @@
   }
 }
 
-[debug] [2020-01-30T11:32:59.050Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-30T23:39:35.139Z] <<< HTTP RESPONSE 200
 [info] ✔  database: rules syntax for database saranglimyida is valid
-[debug] [2020-01-30T11:32:59.053Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/saranglimyida/versions  
+[debug] [2020-01-30T23:39:35.141Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/saranglimyida/versions  
 
-[debug] [2020-01-30T11:32:59.947Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-30T23:39:35.933Z] <<< HTTP RESPONSE 200
 [info] i  hosting[saranglimyida]: beginning deploy...
-[info] i  hosting[saranglimyida]: found 34 files in dist
-[debug] [2020-01-30T11:33:00.282Z] [hosting] hash cache [ZGlzdA] stored for 34 files
-[debug] [2020-01-30T11:33:00.283Z] [hosting][hash queue][FINAL]
-[debug] [2020-01-30T11:33:00.283Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/saranglimyida/versions/9e1ec39e64816878:populateFiles  
+[info] i  hosting[saranglimyida]: found 52 files in dist
+[debug] [2020-01-30T23:39:36.434Z] [hosting] hash cache [ZGlzdA] stored for 52 files
+[debug] [2020-01-30T23:39:36.434Z] [hosting][hash queue][FINAL]
+[debug] [2020-01-30T23:39:36.434Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/saranglimyida/versions/aff9533aca0d7653:populateFiles  
  <request body omitted>
-[debug] [2020-01-30T11:33:01.216Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-30T11:33:01.233Z] [hosting][populate queue][FINAL]
-[debug] [2020-01-30T11:33:01.233Z] [hosting] uploads queued: 29
+[debug] [2020-01-30T23:39:37.351Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-30T23:39:37.370Z] [hosting][populate queue][FINAL]
+[debug] [2020-01-30T23:39:37.370Z] [hosting] uploads queued: 47

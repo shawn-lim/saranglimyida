@@ -1,0 +1,126 @@
+.about-card {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  border-radius: 2px;
+  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.3);
+  p {
+    flex: 1;
+    padding: 0 70px;
+    h2 {
+      font-size: 21px;
+      margin-top: -40px;
+      margin-bottom: 30px;
+    }
+  }
+  @include md {
+    flex-direction: column;
+    p {
+      h2 {
+        margin-top: 0;
+      }
+      padding: 40px;
+    }
+  }
+}
+
+.about-card-image {
+  width: 320px;
+  height: 300px;
+  background-size: cover;
+  border: solid 5px white;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  &.right {
+    transform: rotate(8deg);
+    @include md {
+      transform: rotate(2deg);
+    }
+  }
+  transform: rotate(-8deg);
+  @include md {
+    transform: rotate(-2deg);
+  }
+}
+
+.picture-card-container {
+  display: flex;
+  margin-bottom: -60px;
+  &.shift-up {
+    @include md {
+      margin-top: 0px;
+      margin-left: 0px;
+    }
+    margin-top: -350px;
+    margin-left: -70px;
+  }
+  &.left {
+    .picture-card {
+      @include md {
+        transform: rotate(-4deg);
+      }
+      transform: rotate(-8deg);
+    }
+  }
+  &.center {
+    justify-content: center;
+    .picture-card {
+      transform: rotate(-2deg);
+      @include md {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  &.right {
+    justify-content: flex-end;
+    .picture-card {
+      @include md {
+        transform: rotate(4deg);
+      }
+      transform: rotate(8deg);
+    }
+  }
+}
+.picture-card {
+  width: 400px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: $white;
+  box-shadow: 1px 2px 6px 4px rgba(0, 0, 0, 0.3);
+  p {
+    padding: 10px;
+  }
+}
+.picture-card-image {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.this-year-blob {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  background: white;
+  box-shadow: 1px 2px 6px 4px rgba(0, 0, 0, 0.3);
+  .this-year-blob-content {
+    flex: 1;
+    font-size: 18px;
+    margin: 0 40px;
+    @include md {
+      margin: 40px;
+    }
+  }
+  .this-year-blob-image {
+    width: 300px;
+    height: 500px;
+    background-size: cover;
+    border: solid 5px white;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+  }
+  @include md {
+    flex-direction: column;
+  }
+}

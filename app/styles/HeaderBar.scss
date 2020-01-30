@@ -10,6 +10,9 @@
   a {
     color: black;
     font-size: 24px;
+    @include md {
+      font-size: 14px;
+    }
     &:hover {
       text-decoration: none;
       cursor: pointer;
@@ -19,5 +22,8 @@
     display: flex;
     align-items: center;
     margin: 0 20px;
+    @include md {
+      margin: 0 5px;
+    }
   }
 }
