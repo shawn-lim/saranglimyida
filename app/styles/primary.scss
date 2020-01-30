@@ -2,6 +2,7 @@
 @import "_var-color";
 @import "_var-typography";
 @import "_helper";
+@import "mixins";
 
 html {
   overflow: scroll;
@@ -21,6 +22,18 @@ body {
 
 hr {
   border-color: rgba($color-primary, 0.5);
+}
+
+.custom-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media (min-width: 1200px) {
+    width: 760px;
+  }
 }
 
 button,
@@ -156,3 +169,5 @@ textarea {
 @import "Home";
 @import "Admin";
 @import "Bali";
+@import "HeaderBar";
+@import "Countdown";

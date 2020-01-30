@@ -1,0 +1,49 @@
+.countdown-container {
+  @include sm {
+    height: 400px;
+  }
+  @include md {
+    height: 70vh;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Alex Brush";
+  background-color: rgba(255, 255, 255, 0.9);
+  .save-the-date {
+    font-family: "Rouge Script";
+    color: black;
+  }
+  .wedding-date {
+    font-family: "Rouge Script";
+    color: black;
+  }
+}
+.countdown {
+  @include sm {
+    font-size: 48px;
+  }
+  display: flex;
+  font-weight: bold;
+  font-size: 24px;
+  justify-content: center;
+  align-items: center;
+  .unit {
+    margin: 10px;
+    padding: 10px 0px;
+    @include sm {
+      height: 90px;
+      border: solid 1px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      margin: 20px;
+      padding: 10px 30px;
+    }
+    .unit-label {
+      font-size: 12px;
+      @include sm {
+        font-size: 24px;
+      }
+    }
+  }
+}

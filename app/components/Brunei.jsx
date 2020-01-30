@@ -1,11 +1,11 @@
 import React from "react";
 
-class Bali extends React.Component {
+class Brunei extends React.Component {
   render() {
     return (
-      <div className="bali" id="bali">
+      <div className="brunei" id="brunei">
         <div className="custom-container">
-          <h1>Bali</h1>
+          <h1>Brunei</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
             quis tincidunt purus. Donec finibus ligula id dolor eleifend
@@ -52,4 +52,4 @@ class Bali extends React.Component {
   }
 }
 
-export default Bali;
+export default Brunei;
