@@ -28,16 +28,17 @@ button,
   display: inline-block;
   margin: 0 auto;
   padding: 5px 25px;
-  color: $color-primary;
+  color: $white;
   background-color: rgba(0, 0, 0, 0.24);
-  border: 1px solid $color-primary;
+  border: 1px solid $white;
   transition: all 0.05s ease-in-out;
   font-size: 12px;
   text-align: center;
+  outline: none;
   &:hover:not([disabled]) {
     cursor: pointer;
     color: #fff;
-    background-color: #8ec6f9;
+    background-color: gray;
     text-decoration: none;
   }
   i {
@@ -153,3 +154,5 @@ textarea {
 
 @import "Components";
 @import "Home";
+@import "Admin";
+@import "Bali";

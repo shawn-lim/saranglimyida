@@ -21,7 +21,9 @@ class Home extends React.Component {
               <h1 className="names">Christine Yi</h1>
               <p>invites you to save the date for the</p>
               <p style={{ fontSize: "46px" }}>25th of September, 2020</p>
-              <p style={{ fontSize: "32px" }}>in Uluwatu Bali, Indonesia</p>
+              <p style={{ fontSize: "32px" }}>
+                in Tirtha Uluwatu Chapel, Bali, Indonesia
+              </p>
             </div>
           </div>
         </div>

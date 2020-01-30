@@ -7,6 +7,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "!style-loader!css-loader!sass-loader!./index.scss";
 
 import Home from './components/Home';
+import Bali from './components/Bali';
+import Admin from './components/Admin';
 
 class App extends React.Component {
   render() {
@@ -14,6 +16,8 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home}></Route>
+          <Route path="/bali" exact component={Bali}></Route>
+          <Route path="/restricted" exact component={Admin}></Route>
           <Route component={function(){
             return (
               <div className="container">
