@@ -17,7 +17,8 @@ class Admin extends React.Component {
     this.state = {
       total: 0,
       list: [],
-      user: undefined
+      user: undefined,
+      checked: false
     };
   }
 
@@ -27,6 +28,10 @@ class Admin extends React.Component {
       this.loadFirebase();
       this.setState({ user: user });
     }
+
+    setTimeout(() => {
+      this.setState({ checked: true });
+    }, 500);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.loadFirebase();
@@ -66,7 +71,7 @@ class Admin extends React.Component {
   };
 
   render() {
-    const { user, total, authError } = this.state;
+    const { checked, user, total, authError } = this.state;
     const guestList = this.state.list.slice(1);
     return (
       <div className="admin-page-container">
@@ -77,8 +82,10 @@ class Admin extends React.Component {
             total={total}
             onSignOut={this.onSignOut}
           />
-        ) : (
+        ) : checked ? (
           <SignIn onSubmit={this.authenticate} error={authError} />
+        ) : (
+          <div />
         )}
       </div>
     );
@@ -87,8 +94,6 @@ class Admin extends React.Component {
 
 const SignIn = props => {
   const handleSubmit = evt => {
-    console.log(evt.target.email.value);
-    console.log(evt.target.password.value);
     evt.preventDefault();
 
     props.onSubmit(evt.target.email.value, evt.target.password.value);

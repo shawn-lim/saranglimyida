@@ -16,8 +16,8 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home}></Route>
-          <Route path="/bali" exact component={Bali}></Route>
-          <Route path="/restricted" exact component={Admin}></Route>
+          <Route path="/bali" component={Bali}></Route>
+          <Route path="/restricted" component={Admin}></Route>
           <Route component={function(){
             return (
               <div className="container">
