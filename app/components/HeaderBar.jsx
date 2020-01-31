@@ -9,12 +9,15 @@ import {
 } from "react-scroll";
 
 class HeaderBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   handleSetActive = active => {
     console.log(active);
   };
   render() {
     return (
-      <div className="home-header-bar">
+      <div className="home-header-bar" style={{ backgroundColor: `rgba(255, 248, 249, ${this.props.headerOpacity})` }}>
         <div className="header-links">
           <Link
             activeClass="active"
