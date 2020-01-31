@@ -1,25 +1,62 @@
 .countdown-container {
-  @include sm {
-    height: 400px;
+  .countdown-container {
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  @include md {
-    height: 70vh;
-  }
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: "Dancing Script";
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.7);
   .save-the-date {
-    font-family: "Dancing Script";
+    text-align: center;
+    font-family: "Zilla Slab";
     color: black;
   }
   .wedding-date {
-    font-family: "Great Vibes";
+    text-align: center;
+    font-family: "Dancing Script";
     color: black;
+    @include md {
+      font-size: 28px;
+    }
+  }
+  .countdown-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    @include md {
+      flex-direction: column;
+    }
+    .countdown-address-icon {
+      text-align: center;
+      width: 80px;
+      i.fa {
+        color: rgba(black, 0.6);
+        font-size: 48px;
+      }
+    }
+    .countdown-address-content {
+      a h3 {
+        color: #284e99;
+      }
+      h3 {
+        display: flex;
+        align-items: center;
+      }
+      i.fa {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      p {
+        font-family: "Zilla Slab";
+        margin: 0;
+      }
+    }
   }
 }
+
 .countdown {
   display: flex;
   font-weight: bold;
@@ -28,18 +65,30 @@
   align-items: center;
   .unit {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 90px;
-    border: solid 1px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
     margin: 20px;
-    padding: 10px 30px;
+    padding: 30px;
+    background-color: white;
+    flex: 1;
+    p {
+      margin: 0;
+    }
     @include md {
       margin: 10px;
       padding: 10px;
       text-align: center;
     }
+    .unit-value {
+      font-size: 42px;
+      font-family: monospace;
+      color: #a67f9f;
+      @include md {
+        font-size: 24px;
+      }
+    }
     .unit-label {
+      font-family: "Zilla Slab";
       font-size: 24px;
       @include sm {
         font-size: 12px;

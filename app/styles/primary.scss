@@ -29,10 +29,10 @@ hr {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   @media (min-width: $screen-md-min) {
-    width: 760px;
+    width: 960px;
   }
 }
 
@@ -172,3 +172,4 @@ textarea {
 @import "Bali";
 @import "HeaderBar";
 @import "Countdown";
+@import "RSVP";

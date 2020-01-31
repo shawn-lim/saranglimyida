@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-reveal";
 
 class Countdown extends React.Component {
   constructor(props) {
@@ -43,30 +44,48 @@ class Countdown extends React.Component {
     const { counting, days, hours, minutes, seconds } = this.state;
     return counting ? (
       <div className="countdown-container">
-        <h1 className="save-the-date">Save the Date!</h1>
-        <div className="countdown">
-          <div className="days unit">
-            <p>
-              {days} <span className="unit-label">days</span>
-            </p>
+        <Fade>
+          <div className="custom-container">
+            <h1 className="wedding-date">25th of September, 2020</h1>
+            <div className="countdown-address">
+              <div className="countdown-address-icon"></div>
+              <div className="countdown-address-content">
+                <a
+                  style={{ color: "blue" }}
+                  href="https://www.google.com/maps/search/?api=1&query=Tirtha%20Bridal%2C%20Indonesia"
+                  target="_blank"
+                >
+                  <h3>
+                    <i className="fa fa-map-pin"></i>
+                    Tirtha Bridal
+                  </h3>
+                </a>
+                <p>Dinas Karang Boma,</p>
+                <p>Jl. Uluwatu Banyar, Pecatu, Kec. Kuta Sel.,</p>
+                <p>Kabupaten Badung,</p>
+                <p>Bali 80364, Indonesia</p>
+              </div>
+            </div>
+            <div className="countdown">
+              <div className="days unit">
+                <p className="unit-value">{days}</p>
+                <p className="unit-label">days</p>
+              </div>
+              <div className="hours unit">
+                <p className="unit-value">{hours}</p>
+                <p className="unit-label">hours</p>
+              </div>
+              <div className="minutes unit">
+                <p className="unit-value">{minutes}</p>
+                <p className="unit-label">minutes</p>
+              </div>
+              <div className="seconds unit">
+                <p className="unit-value">{seconds}</p>
+                <p className="unit-label">seconds</p>
+              </div>
+            </div>
           </div>
-          <div className="hours unit">
-            <p>
-              {hours} <span className="unit-label">hours</span>
-            </p>
-          </div>
-          <div className="minutes unit">
-            <p>
-              {minutes} <span className="unit-label">minutes</span>
-            </p>
-          </div>
-          <div className="seconds unit">
-            <p>
-              {seconds} <span className="unit-label">seconds</span>
-            </p>
-          </div>
-        </div>
-        <h1 className="wedding-date">25th of September, 2020</h1>
+        </Fade>
       </div>
     ) : (
       <div />

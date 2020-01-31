@@ -3,49 +3,73 @@ import React from "react";
 class Bali extends React.Component {
   render() {
     return (
-      <div className="bali" id="bali">
-        <div className="custom-container">
-          <h1>Bali</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-            quis tincidunt purus. Donec finibus ligula id dolor eleifend
-            consectetur. Sed sit amet vestibulum risus, placerat scelerisque
-            lectus. Morbi placerat, augue non molestie efficitur, augue nunc
-            scelerisque lectus, in egestas neque velit a turpis. Proin in leo in
-            velit lobortis sagittis vitae sit amet erat. Suspendisse ultrices
-            feugiat ex, ac pharetra felis ullamcorper sit amet. Aliquam
-            vestibulum nisi sed erat sodales, et pellentesque enim venenatis.
-            Suspendisse porta tellus ac turpis rhoncus, id luctus eros feugiat.
-          </p>
-          <p>
-            Pellentesque id justo eu felis venenatis congue. Vestibulum ornare
-            imperdiet nisl, sed fringilla erat blandit id. Nullam vel metus est.
-            Mauris pretium, odio quis accumsan sagittis, risus ante lobortis
-            lacus, in commodo ex ligula nec mauris. Curabitur aliquam suscipit
-            est, quis sollicitudin urna blandit ac. Integer bibendum aliquam
-            sem, at fermentum enim tincidunt et. Phasellus viverra feugiat
-            ligula, non sagittis odio dictum quis. Interdum et malesuada fames
-            ac ante ipsum primis in faucibus. Vestibulum nec gravida mi, nec
-            rutrum justo. Nam efficitur ligula neque, ut viverra odio eleifend
-            eu. Vestibulum viverra ipsum nisi. Nunc vitae nibh ut turpis
-            eleifend malesuada. Ut quis hendrerit mi, in varius velit. Sed purus
-            felis, venenatis eu eleifend non, aliquam at leo. In facilisis metus
-            ut neque mollis, in tempor quam ultricies. Maecenas sollicitudin
-            eros urna, in mollis augue vestibulum a.
-          </p>
-          <p>
-            Donec malesuada ipsum eget ultrices bibendum. Nulla tristique quam
-            posuere justo eleifend viverra. Praesent bibendum sit amet nisl nec
-            ultricies. Nulla facilisis sit amet ex lacinia ornare. Curabitur
-            consectetur efficitur metus a aliquam. Sed consequat elit nec velit
-            porta efficitur. Nullam metus quam, lobortis vitae gravida et,
-            hendrerit non tortor. Donec eget nisl quis libero elementum aliquet.
-            In ullamcorper nec ex nec ornare. Nunc eget urna sed risus lobortis
-            tempor in et ligula. Integer vehicula, tortor a luctus euismod, eros
-            libero tincidunt ipsum, et suscipit leo mi ac nunc. Morbi a eros et
-            diam laoreet consequat et quis lacus. Proin maximus suscipit
-            condimentum.
-          </p>
+      <div className="bali homepage-section" id="bali">
+        <div className="border-top"></div>
+        <div className="bali-background"></div>
+        <div className="bali-container custom-container">
+          <div className="envelope-container">
+            <div className="envelope-content">
+              <h1>Tirtha Uluwatu, Bali</h1>
+              <p>
+                Our main wedding ceremony and reception will be done in Bali,
+                Indonesia, near crystal clear blue waters and fresh tropical
+                greeneries.{" "}
+              </p>
+              <p>
+                We will have a classic chapel wedding at the Tirtha Bridal
+                Chapel to commemorate the beginning of our new journey, followed
+                by an evening full of family, friends, food and music.{" "}
+              </p>
+            </div>
+          </div>
+          <div className="boxes-container">
+            <div className="box">
+              <h3>
+                <i className="fa fa-map-marker-alt"></i>
+              </h3>
+              <p>
+                <span style={{ fontWeight: "bold", fontSize: "24px" }}>
+                  The I Do's
+                </span>
+                <br />
+                5 - 6:30pm
+                <br />
+                25th September, 2020
+                <br />
+                @Tirtha Uluwatu Chapel
+              </p>
+            </div>
+            <div className="box">
+              <h3>
+                <i className="fa fa-utensils"></i>
+              </h3>
+              <p>
+                <span style={{ fontWeight: "bold", fontSize: "24px" }}>
+                  Reception
+                </span>
+                <br />
+                6:30 - 11pm
+                <br />
+                25th September, 2020
+                <br />
+                Dinner Pavilion @Tirtha
+              </p>
+            </div>
+            <div className="box">
+              <h3>
+                <i className="fa fa-cocktail"></i>
+              </h3>
+              <p>
+                <span style={{ fontWeight: "bold", fontSize: "24px" }}>
+                  The Afterparty
+                </span>
+                <br />
+                TBA
+                <br />
+                25th September, 2020
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     );

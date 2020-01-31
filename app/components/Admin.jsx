@@ -5,15 +5,6 @@ class Admin extends React.Component {
   constructor(props) {
     super(props);
 
-    this.headerMap = {
-      FIRST_NAME: "First Name",
-      LAST_NAME: "Last Name",
-      PARTY_SIZE: "Party Size",
-      DRINKABILITY: "Drink Ability",
-      DIETARY: "Dietary Restrictions",
-      ATTENDING: "Attending"
-    };
-
     this.state = {
       total: 0,
       list: [],
@@ -41,16 +32,19 @@ class Admin extends React.Component {
   }
 
   loadFirebase = () => {
-    const rootRef = firebase.database().ref("masterSheet");
+    const rootRef = firebase.database().ref("bali");
     rootRef.once("value").then(snapshot => {
       const raw = snapshot.val();
-      const total = raw.slice(1).reduce((acc, curr) => {
-        acc += curr[2] * curr[5];
-        return acc;
-      }, 0);
+      let total = 0;
+
+      const list = Object.keys(raw).map((key) => {
+        total += raw[key].party_size * raw[key].attending
+        return raw[key];
+      })
+
       this.setState({
         total: total,
-        list: raw
+        list: list
       });
     });
   };
@@ -116,7 +110,7 @@ const SignIn = props => {
 const Authenticated = props => {
   const { guestList, total, onSignOut } = props;
   return (
-    <div>
+    <div className="custom-container">
       <div className="guest-list-info-container">
         <h1 className="guest-list-header">Guest List</h1>
         <button style={{ float: "right" }} onClick={onSignOut}>
@@ -130,13 +124,13 @@ const Authenticated = props => {
             <div className="guest_information">
               <div className="guest_header">
                 <div className="guest_size">
-                  <div className="guest_party_size">{guest[2]}</div>
+                  <div className="guest_party_size">{guest.party_size}</div>
                 </div>
-                <div className="guest_name">{`${guest[0]} ${guest[1]}`}</div>
+                <div className="guest_name">{`${guest.first_name} ${guest.last_name}`}</div>
               </div>
               <div className="guest_details">
-                <div className="guest_drinkability">{`Drink Rating: ${guest[3]}`}</div>
-                <div className="guest_dietary">{`Dietary Comments: ${guest[4]}`}</div>
+                <div className="guest_drinkability">{`Drink Rating: ${guest.drinkability}`}</div>
+                <div className="guest_dietary">{`Dietary Comments: ${guest.dietary}`}</div>
               </div>
             </div>
           ))}

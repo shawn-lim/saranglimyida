@@ -28,7 +28,7 @@ class HeaderBar extends React.Component {
             Home
           </Link>
         </div>
-        <p className="heart-separator">🎔</p>
+        <i className="heart-separator fas fa-heart"></i>
         <div className="header-links">
           <Link
             activeClass="active"
@@ -42,7 +42,7 @@ class HeaderBar extends React.Component {
             Our Story
           </Link>
         </div>
-        <p className="heart-separator">🎔</p>
+        <i className="heart-separator fas fa-heart"></i>
         <div className="header-links">
           <Link
             activeClass="active"
@@ -56,7 +56,7 @@ class HeaderBar extends React.Component {
             Bali
           </Link>
         </div>
-        <p className="heart-separator">🎔</p>
+        <i className="heart-separator fas fa-heart"></i>
         <div className="header-links">
           <Link
             activeClass="active"
@@ -70,7 +70,7 @@ class HeaderBar extends React.Component {
             Kuching
           </Link>
         </div>
-        <p className="heart-separator">🎔</p>
+        <i className="heart-separator fas fa-heart"></i>
         <div className="header-links">
           <Link
             activeClass="active"
@@ -84,7 +84,7 @@ class HeaderBar extends React.Component {
             Brunei
           </Link>
         </div>
-        <p className="heart-separator">🎔</p>
+        <i className="heart-separator fas fa-heart"></i>
         <div className="header-links">
           <Link
             activeClass="active"

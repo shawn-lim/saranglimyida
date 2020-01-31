@@ -4,14 +4,18 @@
   align-items: center;
   height: 100vh;
 }
+.homepage-section {
+  position: relative;
+  width: 100%;
+}
 .home-page-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-    url("/public/images/bouquet.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgb(255, 238, 238)),
+    url(/public/images/bouquet.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,14 +23,25 @@
   -webkit-filter: blur(3px);
   z-index: -1;
 }
+.border-top {
+  width: 130%;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  left: -15%;
+  background: white;
+  z-index: 1;
+  box-shadow: inset 1px 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
 
 .image-container {
-  @include sm {
-    margin: 0;
+  @include md {
+    margin: 40px 10px;
+    transform: rotate(7deg) translate(0px, 20px);
   }
   margin-top: 50%;
   margin-bottom: 50%;
-  transform: rotate(5deg);
+  transform: rotate(6deg) translate(100px, 0px);
   background-color: rgba(255, 255, 255, 0.65);
   box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -34,10 +49,11 @@
 .image-content {
   @include sm {
     padding: 40px 20px;
+    transform: rotate(-7deg);
   }
   padding: 10px;
   border-radius: 3px;
-  transform: rotate(-5deg);
+  transform: rotate(-4deg);
   z-index: -1;
   box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
   background-color: rgb(254, 248, 249);
@@ -47,15 +63,84 @@
   }
 }
 
+.envelope-container {
+  @include sm {
+    margin: 0;
+  }
+  transform: rotate(2deg);
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+.envelope-content {
+  @include sm {
+    padding: 40px 20px;
+  }
+  padding: 10px;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  z-index: -1;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.boxes-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  @include md {
+    flex-direction: column;
+  }
+  .box {
+    position: relative;
+    padding: 20px 40px;
+    flex: 1;
+    background-color: white;
+    border: solid 1px gray;
+    margin: 10px;
+    box-shadow: 1px 2px 4px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+}
+
 .introduction {
-  font-size: 24px;
-  font-family: "Dancing Script", cursive;
+  position: relative;
+  font-size: 18px;
+  font-family: "Zilla Slab", cursive;
   text-align: center;
+  .introduction-image {
+    position: absolute;
+    background-image: url(/public/images/shawnandseungmin.jpg);
+    width: 300px;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border: solid 5px white;
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.3);
+    top: 222px;
+    left: -140px;
+    transform: rotate(-6deg);
+    @include md {
+      width: 140px;
+      bottom: -30px;
+      left: 170px;
+      height: 180px;
+      top: auto;
+      z-index: 1;
+      transform: rotate(11deg);
+    }
+  }
   .name-heart-separator {
-    margin: 20px 10px;
+    margin: 20px;
+    font-size: 12px;
+    line-height: 28px;
     @include sm {
       margin: 0;
     }
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
   }
   p {
     @include sm {
@@ -78,6 +163,19 @@
       font-weight: 100;
       font-size: 28px;
       font-family: "Great Vibes", cursive;
+    }
+  }
+  .respectfully-container {
+    text-align: center;
+    @include md {
+      text-align: left;
+    }
+    .respectfully {
+      margin: 0 auto;
+      font-family: "Dancing Script", cursive;
+      @include md {
+        margin: 20px 0px -10px 20px;
+      }
     }
   }
 }

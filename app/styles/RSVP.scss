@@ -1,0 +1,110 @@
+.rsvp-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rsvp-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url("/public/images/rsvp.jpg");
+  background-size: cover;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  z-index: -1;
+}
+
+.rsvp-card-envelope {
+  background: #ffdede;
+  width: 800px;
+  transform: rotate(-4deg);
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 30px;
+  .rsvp-card {
+    background-color: #efefef;
+    width: 100%;
+    height: 100%;
+    transform: rotate(4deg);
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    font-family: "Zilla Slab";
+    .sns-watermark {
+      width: 150px;
+      position: absolute;
+      top: 15px;
+      right: 40px;
+      opacity: 0.3;
+    }
+    .rsvp-form {
+      label {
+        color: $black;
+      }
+      input {
+        color: #000c4d;
+        background: none;
+        border: none;
+        outline: none;
+        font-family: "Dancing Script";
+        font-size: 18px;
+        margin: 10px 20px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+      .send-response-container {
+        display: flex;
+        justify-content: flex-end;
+        .submit-button {
+          color: black;
+          font-family: "Zilla Slab";
+          border: none;
+          &.saved {
+            color: lightgray;
+          }
+        }
+      }
+      .dietary {
+        text-align: left;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.guest-name {
+  font-family: "Great Vibes";
+}
+
+.bridegroom-name {
+  font-size: 24px;
+  font-family: "Dancing Script";
+}
+
+.card-contents {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: solid 1px rgba(0, 0, 0, 0.3);
+}
+.time-and-place {
+  font-size: 24px;
+}
+.rsvp-toggle {
+  cursor: pointer;
+  text-align: center;
+  p {
+    font-size: 12px;
+    color: gray;
+  }
+  h1 {
+    color: #000c4d;
+    font-family: "Dancing Script";
+  }
+}

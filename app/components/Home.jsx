@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 import HeaderBar from "./HeaderBar";
 import Countdown from "./Countdown";
-import About from './About';
+import About from "./About";
 import Bali from "./Bali";
 import Kuching from "./Kuching";
 import Brunei from "./Brunei";
@@ -35,17 +36,18 @@ class Home extends React.Component {
       (this.state.wHeight / 2);
     this.setState({
       homecardOpacity,
+      scrollTop: scrollTop
     });
   };
 
   render() {
-    const { homecardOpacity, countdownOpacity } = this.state;
+    const { scrollTop, homecardOpacity, countdownOpacity } = this.state;
     return (
       <div className="home-page-container">
         <HeaderBar />
         <HomeContent opacity={homecardOpacity} />
         <Countdown opacity={countdownOpacity} />
-        <About />
+        <About scrollTop={scrollTop} />
         <Bali />
         <Kuching />
         <Brunei />
@@ -62,19 +64,47 @@ const HomeContent = ({ opacity }) => {
       <div className="image-container">
         <div className="image-content">
           <div className="introduction">
+            <div className="introduction-image"></div>
             <p>
-              Please join us in our celebration officiating our
-              love for each other.
+              We decided to live happily ever after. Join us in celebrating the
+              wedding of{" "}
             </p>
             <div className="names-container">
               <h1 className="names">Shawn Lim Hoong Tze</h1>
-              <p className="name-heart-separator">🎔</p>
+              <p className="name-heart-separator">
+                <i className="fa fa-heart"></i>
+              </p>
               <h1 className="names">Christine Seungmin Yi</h1>
             </div>
-            <img
-              className="home-page-logo"
-              src="/public/images/SNS.png"
-            />
+            <p>
+              <Link
+                to="bali"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                Tirtha Bridal, Uluwatu, Bali
+              </Link>
+              <br />
+
+              <span style={{ fontSize: "14px" }}>
+                and{" "}
+                <Link
+                  to="kuching"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  other locations.
+                </Link>
+              </span>
+            </p>
+            <div className="respectfully-container">
+              <p className="respectfully">Respectfully,</p>
+              <img className="home-page-logo" src="/public/images/SNS.png" />
+            </div>
           </div>
         </div>
       </div>
