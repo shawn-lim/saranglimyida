@@ -18,8 +18,18 @@
 }
 
 .guest_information {
+  position: relative;
   padding: 20px;
   border-bottom: solid 1px rgba(0, 0, 0, 0.5);
+  &.attending {
+    color: green;
+  }
+  &.notattending {
+    color: #cd4d4d;
+  }
+  &.pending {
+    color: gray;
+  }
   .guest_header {
     display: flex;
     align-items: center;
@@ -56,6 +66,13 @@
     margin: 50% 0;
     padding: 20px 20px;
   }
+}
+.attending-marker {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  font-size: 24px;
+  opacity: 0.7;
 }
 
 .error {

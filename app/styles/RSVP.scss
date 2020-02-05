@@ -32,6 +32,7 @@
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.5);
     padding: 40px;
     font-family: "Zilla Slab";
+    overflow: hidden;
     .sns-watermark {
       width: 150px;
       position: absolute;
@@ -66,7 +67,6 @@
           font-family: "Zilla Slab";
           border: none;
           &.saved {
-            color: lightgray;
           }
         }
       }
@@ -106,5 +106,25 @@
   h1 {
     color: #000c4d;
     font-family: "Dancing Script";
+  }
+}
+
+.sent-marker {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+
+  i.fa {
+    font-size: 180px;
+    opacity: 0.3;
+    color: #75a458;
+  }
+  .response-sent-timestamp {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    color: gray;
+    width: 200%;
+    text-align: right;
   }
 }

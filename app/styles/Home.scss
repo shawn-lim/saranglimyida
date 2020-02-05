@@ -4,6 +4,16 @@
   align-items: center;
   height: 100vh;
 }
+.flex {
+  display: flex;
+  @include md {
+    flex-direction: column;
+  }
+  .flex-1 {
+    flex: 1;
+    margin: 10px;
+  }
+}
 .homepage-section {
   position: relative;
   width: 100%;

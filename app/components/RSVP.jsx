@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import firebase from "../utils/firebase";
 
 class RSVP extends React.Component {
@@ -20,7 +21,7 @@ class RSVP extends React.Component {
     const rootRef = firebase.database().ref("bali/" + guest);
     rootRef.once("value").then(snapshot => {
       const raw = snapshot.val();
-      if(!raw) {
+      if (!raw) {
         window.location.href = "/";
       } else {
         this.setState({ guest_key: guest, ...raw });
@@ -43,9 +44,30 @@ class RSVP extends React.Component {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log(this.state);
-    this.setState({
-      saved: true
-    });
+
+    this.setState(
+      {
+        responded: Date.now(),
+        saved: true
+      },
+      this.sendRSVPInformation
+    );
+  };
+
+  sendRSVPInformation = () => {
+    firebase
+      .database()
+      .ref("bali/" + this.state.guest_key)
+      .set({
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        drinkability: this.state.drinkability,
+        attending: this.state.attending,
+        party_size: this.state.party_size,
+        dietary: this.state.dietary || "",
+        email: this.state.email || "",
+        responded: this.state.responded
+      });
   };
 
   render() {
@@ -56,7 +78,8 @@ class RSVP extends React.Component {
       party_size,
       dietary,
       attending,
-      saved
+      saved,
+      responded
     } = this.state;
     return (
       <div className="rsvp-page">
@@ -115,7 +138,7 @@ class RSVP extends React.Component {
                       name="dietary"
                       className="dietary"
                       value={dietary}
-                      onChange={this.handleInfoChange["dietary"]}
+                      onChange={this.handleInfoChange("dietary")}
                     />
                   </div>
 
@@ -133,9 +156,28 @@ class RSVP extends React.Component {
                     <input
                       disabled={saved}
                       type="submit"
-                      value={saved ? "Sent" : "Send Response"}
+                      value={
+                        saved
+                          ? "Sent"
+                          : responded
+                          ? "Update Response"
+                          : "Send Response"
+                      }
                       className={`submit-button ${saved ? "saved" : ""}`}
                     />
+                    {responded && (
+                      <div className="sent-marker">
+                        <i
+                          className="fa fa-check-double"
+                          style={{
+                            color: responded ? "#75a458" : "transparent"
+                          }}
+                        ></i>
+                        <span className="response-sent-timestamp">
+                          You sent your response {moment(responded).calendar()}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </form>
               </div>

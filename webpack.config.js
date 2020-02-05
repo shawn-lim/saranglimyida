@@ -11,7 +11,7 @@ module.exports = {
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
   },
   devServer: {
     historyApiFallback: true,
@@ -51,7 +51,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html'
+      template: 'app/index.html',
+      favicon: 'public/images/favicon.ico'
     }),
     new CopyWebpackPlugin([
       { from: 'public', to: 'public' }
